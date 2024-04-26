@@ -37,7 +37,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 
 
-let brandItem = document.querySelectorAll('.brand__item');
+const brandItem = document.querySelectorAll('.brand__item');
 
 if (window.innerWidth > 1119) {                         //Скрываем ссылки с логотипами
   for (let i = 8; i < brandItem.length; i++) {         //т.о., чтоб при типовом расширении
@@ -49,38 +49,36 @@ if (window.innerWidth > 1119) {                         //Скрываем сс�
   }
 }
 
-let brandsButtonShow = document.querySelector('.brands__button-show');
 
-brandsButtonShow.addEventListener('click', function () {                 //по клику мышкой (или пальцем) запускаем цепь событий
-  if (brandsButtonShow.classList[1] == 'brands__button_hiden') {         // которые заключаются в проверке в каком состоянии сейчас сетка
-  
-    brandsButtonShow.classList.remove('brands__button_hiden');           //если сетка закрыта, тогда у кнопки удаляется класс
-    brandsButtonShow.querySelector('span').textContent = 'Показать все'; //в стилях которых содержался display:none и меняется текст кнопки. 
+
+const brandsButtonShow = document.querySelector('.brands__button-show');
+
+brandsButtonShow.addEventListener('click', function () {
+  brandsButtonShow.classList.toggle('brands__button_hiden');
+
+  if (brandsButtonShow.classList.contains('brands__button_hiden')) {
+    brandsButtonShow.querySelector('span').textContent = 'Показать все';
 
     if (window.innerWidth > 1119) {
-      for (let i = 8; i < brandItem.length; i++) {                       //
+      for (let i = 8; i < brandItem.length; i++) {
         brandItem[i].classList.add('invisible');
       }
-    } else if(window.innerWidth > 767) {
+    } else if (window.innerWidth > 767) {
       for (let i = 6; i < brandItem.length; i++) {
         brandItem[i].classList.add('invisible');
       }
     }
-
-  }else {
-
-    brandsButtonShow.classList.add('brands__button_hiden');            //иначе (сетка открыта) кнопке присваевается класс с dispplay:none
-    brandsButtonShow.querySelector('span').textContent = 'Скрыть';     //и меняется текст на "скрыть".
+  } else {
+    brandsButtonShow.querySelector('span').textContent = 'Скрыть';
 
     if (window.innerWidth > 1119) {
       for (let i = 8; i < brandItem.length; i++) {
         brandItem[i].classList.remove('invisible');
       }
-    } else if(window.innerWidth > 767) {
+    } else if (window.innerWidth > 767) {
       for (let i = 6; i < brandItem.length; i++) {
         brandItem[i].classList.remove('invisible');
       }
     }
   }
-
 });
