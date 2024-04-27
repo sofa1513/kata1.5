@@ -143,7 +143,7 @@ fill:rgb(122, 24, 122)
   height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 12px));
 } 
 
-button {
+.brands__button-show {
   display: none;
 }
 
@@ -158,29 +158,38 @@ button {
 
   
 
-  .brands__button-show{
+  .brands__button{
     font-weight: 500;
     font-size: 16px;
     color: #1B1C21;
     background-color: inherit;
     margin-bottom: 40px;
+    margin-left: 63px;
     display: block;
     transition-duration: 0.5s;
     border: none;
   }
-  .brands__button-show>img{
-    margin-right: 18px;
-    margin-left: 5px;
-    vertical-align: middle;
-    transition-duration: 0.5s;
-  
+
+  .brands__button-show::before{
+    position: absolute;
+  content: "";
+  left: 40px;
+  width: 24px;
+  height: 24px;
+  background-image: url(../images/hide.svg);
+  transition: transform 0.3s ease;
+ 
   }
-  .brands__button_hiden{
-    transform: translateY(20px);
+  .brands__button_hiden::before{
+
+  transform: rotate(180deg);
+ 
   }
-  .brands__button_hiden>img{
-    transform: rotate(180deg);
-  }
+    /*  position: absolute;
+  content: "";
+  width: 24px;
+  height: 24px;
+  background-image: url(../images/hide.svg); */
 
   .brands__list {
     display: grid;

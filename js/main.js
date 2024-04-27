@@ -56,8 +56,12 @@ const brandsButtonShow = document.querySelector('.brands__button-show');
 brandsButtonShow.addEventListener('click', function () {
   brandsButtonShow.classList.toggle('brands__button_hiden');
 
-  if (brandsButtonShow.classList.contains('brands__button_hiden')) {
-    brandsButtonShow.querySelector('span').textContent = 'Показать все';
+ 
+
+if (brandsButtonShow.classList.contains('brands__button_hiden')) {
+  const spanElement = brandsButtonShow.querySelector('span');
+  spanElement.textContent = 'Показать все';
+
 
     if (window.innerWidth > 1119) {
       for (let i = 8; i < brandItem.length; i++) {
@@ -69,7 +73,9 @@ brandsButtonShow.addEventListener('click', function () {
       }
     }
   } else {
-    brandsButtonShow.querySelector('span').textContent = 'Скрыть';
+ 
+const spanElement = brandsButtonShow.querySelector('span');
+spanElement.textContent = 'Скрыть';
 
     if (window.innerWidth > 1119) {
       for (let i = 8; i < brandItem.length; i++) {
